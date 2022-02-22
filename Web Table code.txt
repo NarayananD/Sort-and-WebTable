@@ -1,0 +1,39 @@
+ WebDriver driver= new FirefoxDriver();
+    driver.get("http://www.leafground.com/pages/table.html");
+    Thread.sleep(1000);
+    WebElement table = driver.findElement(By.xpath("(//table[@id=\"table_id\"])/tbody"));
+
+    List<WebElement> rows = table.findElements(By.tagName("tr"));
+    System.out.println("total nop.of rows:"+rows.size());
+
+    Thread.sleep(2000);
+    WebElement findElement = driver.findElement(By.xpath("(//table[@id=\"table_id\"])/tbody/tr"));
+
+    List<WebElement> findElements = findElement.findElements(By.tagName("td"));
+    System.out.println("total no. of col"+findElements.size());
+
+
+   WebElement findElement3 = driver.findElement(By.xpath("(//table[@id=\"table_id\"])/tbody/tr[3]/td[2]"));
+    findElement3.click();
+    String text = findElement3.getText();
+    System.out.println(text);
+
+
+
+    WebElement findElement4 = driver.findElement(By.xpath("(//table[@id=\"table_id\"])/tbody/tr[4]/td[2]"));
+    findElement4.click();
+    String text2 = findElement4.getText();
+    System.out.println(text2);
+////
+    String set="50";
+//
+    if(set.equals(text2)) {
+        System.out.println(text2);
+    }
+    else {
+        Thread.sleep(2000);
+        WebElement findElement5 = driver.findElement(By.xpath("(//input[@type=\"checkbox\"])[3]"));
+        findElement5.click();
+
+        System.out.println("done");
+   }
